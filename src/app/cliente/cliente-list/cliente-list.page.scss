@@ -1,0 +1,19 @@
+ion-grid {
+    --ion-grid-padding: 10px;
+    --ion-grid-column-padding: 10px;
+}
+
+ion-row {
+    border-bottom: 1px solid #dcdcdc;
+    padding: 10px 0;
+}
+
+ion-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+ion-col strong {
+    text-align: center;
+}

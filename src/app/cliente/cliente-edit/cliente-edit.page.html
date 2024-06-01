@@ -1,0 +1,48 @@
+<ion-header [translucent]="true">
+    <ion-toolbar color="primary">
+        <ion-title>{{ isNew ? 'Nuevo' : 'Editar' }} Cliente</ion-title>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="/cliente-list"></ion-back-button>
+        </ion-buttons>
+        <ion-buttons slot="primary">
+            <ion-button [disabled]="nombre_apellido.invalid || bien_asegurado.invalid || monto_asegurado.invalid " fill="solid" (click)="guardarCliente()">
+                Guardar
+            </ion-button>
+            <ion-button *ngIf="!isNew" fill="solid" (click)="eliminarCliente()" color="danger">
+                <ion-icon slot="end" name="trash"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ion-list>
+        <ion-item>
+            <ion-label position="floating">Nombre y Apellido</ion-label>
+            <ion-input [(ngModel)]="cliente.nombre_apellido" #nombre_apellido="ngModel" name="nombre_apellido" required type="text"></ion-input>
+            <ion-icon *ngIf="nombre_apellido.invalid && nombre_apellido.touched" slot="end" name="alert-circle-outline" color="danger"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>Fecha de Nacimiento</ion-label>
+            <ion-datetime display-format="YYYY-MM-DD" picker-format="YYYY-MM-DD" [(ngModel)]="cliente.fecha_nacimiento"></ion-datetime>
+        </ion-item>
+
+
+        <ion-item>
+            <ion-label position="floating">Bien Asegurado</ion-label>
+            <ion-input [(ngModel)]="cliente.bien_asegurado" #bien_asegurado="ngModel" name="bien_asegurado" required type="text"></ion-input>
+            <ion-icon *ngIf="bien_asegurado.invalid && bien_asegurado.touched" slot="end" name="alert-circle-outline" color="danger"></ion-icon>
+        </ion-item>
+
+        <ion-item>
+            <ion-label position="floating">Monto del Asegurado</ion-label>
+            <ion-input [(ngModel)]="cliente.monto_asegurado" #monto_asegurado="ngModel" name="monto_asegurado" required type="number"></ion-input>
+            <ion-icon *ngIf="monto_asegurado.invalid && monto_asegurado.touched" slot="end" name="alert-circle-outline" color="danger"></ion-icon>
+        </ion-item>
+
+
+
+
+    </ion-list>
+</ion-content>

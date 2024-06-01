@@ -9,7 +9,15 @@ const routes: Routes = [
   },
   {
     path: 'folder/:id',
-    loadChildren: () => import('./folder/folder.module').then( m => m.FolderPageModule)
+    loadChildren: () => import('./folder/folder.module').then(m => m.FolderPageModule)
+  },
+  {
+    path: 'cliente-list',
+    loadChildren: () => import('./cliente/cliente-list/cliente-list.module').then(m => m.ClienteListPageModule)
+  },
+  {
+    path: 'cliente-edit/:id',
+    loadChildren: () => import('./cliente/cliente-edit/cliente-edit.module').then(m => m.ClienteEditPageModule)
   }
 ];
 
